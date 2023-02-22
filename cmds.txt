@@ -1,0 +1,97 @@
+
+# [1. generate enough data]
+python 1_generate_data.py --k_train 8000 --k_test 3000
+
+# [2. To recover Fig. 3 (a,b,c), run the following commands]
+
+## [2.1. feasibility]
+python 2_training.py --type fea --data 100 --embSize 2
+python 2_training.py --type fea --data 100 --embSize 4
+python 2_training.py --type fea --data 100 --embSize 8
+python 2_training.py --type fea --data 100 --embSize 16
+python 2_training.py --type fea --data 100 --embSize 32
+python 2_training.py --type fea --data 100 --embSize 64
+
+python 2_training.py --type fea --data 500 --embSize 2
+python 2_training.py --type fea --data 500 --embSize 4
+python 2_training.py --type fea --data 500 --embSize 8
+python 2_training.py --type fea --data 500 --embSize 16
+python 2_training.py --type fea --data 500 --embSize 32
+python 2_training.py --type fea --data 500 --embSize 64
+
+python 2_training.py --type fea --data 2500 --embSize 2 
+python 2_training.py --type fea --data 2500 --embSize 4
+python 2_training.py --type fea --data 2500 --embSize 8
+python 2_training.py --type fea --data 2500 --embSize 16
+python 2_training.py --type fea --data 2500 --embSize 32 
+python 2_training.py --type fea --data 2500 --embSize 64
+
+## [2.2. objective]
+python 2_training.py --type obj --data 100 --embSize 2
+python 2_training.py --type obj --data 100 --embSize 4
+python 2_training.py --type obj --data 100 --embSize 8
+python 2_training.py --type obj --data 100 --embSize 16
+python 2_training.py --type obj --data 100 --embSize 32
+python 2_training.py --type obj --data 100 --embSize 64
+
+python 2_training.py --type obj --data 500 --embSize 2
+python 2_training.py --type obj --data 500 --embSize 4
+python 2_training.py --type obj --data 500 --embSize 8
+python 2_training.py --type obj --data 500 --embSize 16
+python 2_training.py --type obj --data 500 --embSize 32
+python 2_training.py --type obj --data 500 --embSize 64
+
+python 2_training.py --type obj --data 2500 --embSize 2
+python 2_training.py --type obj --data 2500 --embSize 4
+python 2_training.py --type obj --data 2500 --embSize 8
+python 2_training.py --type obj --data 2500 --embSize 16
+python 2_training.py --type obj --data 2500 --embSize 32
+python 2_training.py --type obj --data 2500 --embSize 64
+
+## [2.3. solution]
+python 2_training.py --type sol --data 100 --embSize 16
+python 2_training.py --type sol --data 100 --embSize 32
+python 2_training.py --type sol --data 100 --embSize 64
+python 2_training.py --type sol --data 100 --embSize 128
+python 2_training.py --type sol --data 100 --embSize 256
+python 2_training.py --type sol --data 100 --embSize 512
+
+python 2_training.py --type sol --data 500 --embSize 16
+python 2_training.py --type sol --data 500 --embSize 32
+python 2_training.py --type sol --data 500 --embSize 64
+python 2_training.py --type sol --data 500 --embSize 128
+python 2_training.py --type sol --data 500 --embSize 256
+python 2_training.py --type sol --data 500 --embSize 512
+
+python 2_training.py --type sol --data 2500 --embSize 16
+python 2_training.py --type sol --data 2500 --embSize 32
+python 2_training.py --type sol --data 2500 --embSize 64
+python 2_training.py --type sol --data 2500 --embSize 128
+python 2_training.py --type sol --data 2500 --embSize 256
+python 2_training.py --type sol --data 2500 --embSize 512
+
+## [2.4. testing]
+
+python 4_testing_all.py --type fea --set train --loss mse
+python 4_testing_all.py --type obj --set train --loss mse
+python 4_testing_all.py --type sol --set train --loss mse
+
+# [3. To recover tables in the appendix, run the following commands]
+
+python 2_training.py --type fea --data 100 --embSize 6
+python 2_training.py --type fea --data 500 --embSize 6
+python 2_training.py --type fea --data 2500 --embSize 6
+python 2_training.py --type obj --data 100 --embSize 6
+python 2_training.py --type obj --data 500 --embSize 6
+python 2_training.py --type obj --data 2500 --embSize 6
+
+## [The following cmds recover the "training err" in the tables]
+python 4_testing_all.py --type fea --embSize 6 --set train --loss l2
+python 4_testing_all.py --type obj --embSize 6 --set train --loss l2
+python 4_testing_all.py --type sol --embSize 16 --set train --loss l2
+
+## [The following cmds recover the "testing err" in the tables]
+python 4_testing_all.py --type fea --embSize 6 --set test --loss l2 --dataTest 1000
+python 4_testing_all.py --type obj --embSize 6 --set test --loss l2 --dataTest 1000
+python 4_testing_all.py --type sol --embSize 16 --set test --loss l2 --dataTest 1000
+
