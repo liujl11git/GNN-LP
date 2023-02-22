@@ -33,6 +33,7 @@ python 3_testing.py --type sol --set test --loss l2 --embSize 16 --data 500 --da
 ## Reproducing all results
 
 To reproduce all the results, please follow the commands in "cmds.txt"
+
 Our environment: NVIDIA Tesla V100, CUDA 10.1, tensorflow 2.4.1.
 
 ## Citing our work
