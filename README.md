@@ -36,6 +36,12 @@ To reproduce all the results, please follow the commands in "cmds.txt"
 
 Our environment: NVIDIA Tesla V100, CUDA 10.1, tensorflow 2.4.1.
 
+## Related repo
+
+On Representing Mixed-Integer Linear Programs by Graph Neural Networks:
+
+https://github.com/liujl11git/GNN-MILP
+
 ## Citing our work
 
 If you find our code helpful in your resarch or work, please cite our paper.
