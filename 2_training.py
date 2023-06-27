@@ -119,7 +119,7 @@ with tf.device("GPU:"+str(gpu_index)):
 	while epoch <= max_epochs:
 		train_loss,errs,err_rate = process(model, train_data, optimizer, type = args.type)
 			
-		if type == "fea":
+		if args.type == "fea":
 			print(f"EPOCH: {epoch}, TRAIN LOSS: {train_loss}, ERRS: {errs}, ERRATE: {err_rate}")
 			if err_rate < err_best:
 				model.save_state(model_path)
