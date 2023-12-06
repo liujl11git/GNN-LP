@@ -49,7 +49,7 @@ def process(model, dataloader, type = 'fea', loss = 'mse', n_Vars_small = 50):
 			logits = tf.reshape(logits, [int(length_sol/n_Vars_small), n_Vars_small])
 			loss = tf.math.reduce_euclidean_norm(cand_scores - logits, axis = 1)
 			norm = tf.math.reduce_euclidean_norm(cand_scores, axis = 1) + 1.0
-			loss = tf.reduce_mean(loss / norm).numpy()
+			return_err = tf.reduce_mean(loss / norm).numpy()
 
 	return return_err
 
